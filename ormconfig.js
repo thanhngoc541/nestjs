@@ -1,18 +1,18 @@
 const dbConfig = {
-  synchronize: false,
+  synchronize: true,
   //   cli: {
   //     migrationsDir: 'src/migration',
   //   },
 };
 switch (process.env.NODE_ENV) {
-  case 'production':
+  case 'development':
     Object.assign(dbConfig, {
       type: 'sqlite',
       database: 'db.sqlite',
       entities: ['**/*.entity.js'],
     });
     break;
-  case 'development':
+  case 'production':
     Object.assign(dbConfig, {
       type: 'postgres',
       database: process.env.DATABASE_URL,
